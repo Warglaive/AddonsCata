@@ -1,0 +1,75 @@
+Hello,
+
+this is the HowTo Add additional Spell Announces to this addon:
+
+
+
+For adding new Spells without localizing them, just open "setup.lua".
+
+In setup.lua you can easily add a spell without localization, just an example:
+
+
+
+CooldownAnnouncer.Announces["SpellName"] = function(success, target)
+	if (success == "success") then
+		CooldownAnnouncer.ChatMessage("SpellName on you!", "WHISPER", target);
+
+	end
+end
+
+
+For "SpellName", of course, you have to take the exact name of the Spell you want to have announces for. For example "Innervate" or "Power Infusion".
+
+
+
+There is also the possibility to announce the messages in other channels. For example your Healer Channel or Raid Channel:
+Just add this code and you would announce "SpellName on: PlayerName" in Channel 5:
+
+DruidAnnounces.ChatMessage("SpellName on: "..target, "CHANNEL", 5);
+
+
+If you want to announce it in a Raid or Party Channel you have to use this code:
+
+local channel = "SAY";
+if (GetNumPartyMembers()>0) then channel = "PARTY"; end
+if (GetNumRaidMembers()>0) then channel = "RAID"; end
+CooldownAnnouncer.ChatMessage("SpellName on: "..target, channel, nil);
+
+This code sets your local channel on "Say-Chat". It checks for if you're in a party or in a raid and choses its channel.
+If you're not in a Raid or Party you will announce it in "Say".
+
+On the last part it will send the Announce: "SpellName on: PlayerName" in Say, Raid, or Party Channel. Depends on which kind it detected.
+
+
+If you dont't want to have any announces for any spell which is already implemented, just comment it out with "--".
+
+
+
+If you want to localize a spell, just open "localization.lua":
+
+
+
+Just follow this example and add your own spells if you like to.
+For every Spell you'll need at least 2 functions.
+
+CooldownAnnouncer.SPELLNAME_NAME = "SpellName";     This localizes the name of the spell. Write here e.g. "Innervate" or "Unholy Frenzy"
+CooldownAnnouncer.SPELLNAME_SUCCESS = "SpellNamed!";    This is the announce which is going to appear if the cast was successful. 
+Write here e.g. "Innervated." or "Unholy Frenzy on you!".
+
+If you want to localize spells you have to add them later in "setup.lua" too:
+
+setup.lua:
+
+--SpellName announces
+CooldownAnnouncer.Announces[CooldownAnnouncer.SPELLNAME_NAME] = function(success, target)
+	if (success == "success") then
+		
+		CooldownAnnouncer.ChatMessage(CooldownAnnouncer.SPELLNAME_SUCCESS, "WHISPER", target);
+
+	end
+end 
+
+Now you localized your own spell which whispers an Announce to your target. Easy, wasn't it?
+
+
+Angelol@Blackmoore(eu)

@@ -1,0 +1,13 @@
+## Interface: 40300
+## Title: Carbonite 4.301
+## Version: 4.301
+## Author: Carbon Based Creations, LLC
+## Notes: Copyright 2007-2012 Carbon Based Creations, LLC
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: NxData, NxCombatOpts, NxMapOpts
+## SavedVariablesPerCharacter: NxCData
+
+Localization.lua
+Carbonite.lua
+Carbonite.xml

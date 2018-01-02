@@ -1,0 +1,12 @@
+tag 4.3.4.1512-beta
+5f8a7fd1c9f117c58a991cc3a3a9a2014de7fab8
+Phanx <addons@phanx.net>
+2012-08-14 10:14:21 +0000
+
+Tagging as 4.3.4.1512-beta
+
+
+--------------------
+
+Phanx:
+	- - Revert of unintended commit

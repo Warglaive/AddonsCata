@@ -1,0 +1,10 @@
+## Interface: 40300
+## Title: CooldownAnnouncer
+## Version: 1.2
+## Notes: Sends useful whispers & raid-announces for important class spells.
+## Author: Angelol / TumahaB
+## DefaultState: Enabled
+
+localization.lua
+setup.lua
+CooldownAnnouncer.lua
